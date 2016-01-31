@@ -1,0 +1,73 @@
+<head>
+    <title>hello</title>
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="row">
+        {{> loginButtons}}
+
+        {{#if currentUser }}
+
+            {{currentUser._id }}
+
+        {{> dropzone}}
+            {{/if }}
+    </div>
+
+    <div class="row">
+        {{>postlist}}
+    </div>
+</div>
+</body>
+
+<template name="dropzone">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p>Add Files
+                    <span class="btn btn-default btn-file">
+                        <input multiple class="file fileInput" type="file"/>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<template name="postlist">
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                {{#each uploads}}
+                    {{> post}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+
+</template>
+
+<template name="post">
+    <div>
+        <a href="{{this.url}}" target="_blank">
+            <img src="{{this.url store='uploads'
+            uploading='/images/uploading.gif'
+            storing='/images/storing.gif'}}"
+                 alt=""
+                 width="400px" height="200px"
+                 class="thumbnail"/>
+        </a>
+        <p>ID:{{_id}}</p>
+        <p>USERID OF PIC:{{userId}}</p>
+        <p>LOGGED IN:{{currentUser._id}}</p>
+        <button type="button" class="delete_image">
+            Delete Image
+        </button>
+    </div>
+</template>
+
+
+
