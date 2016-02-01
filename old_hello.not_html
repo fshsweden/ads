@@ -5,14 +5,17 @@
 <body>
 <div class="container-fluid">
     <div class="row">
-        {{> loginButtons}}
+        <div class="col-xs-2">
 
-        {{#if currentUser }}
-
-            {{currentUser._id }}
-
-        {{> dropzone}}
+        </div>
+        <div class="col-xs-8">
+            {{#if currentUser }}
+                {{> dropzone}}
             {{/if }}
+        </div>
+        <div class="col-xs-2">
+            {{> loginButtons}}
+        </div>
     </div>
 
     <div class="row">
@@ -22,32 +25,26 @@
 </body>
 
 <template name="dropzone">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <p>Add Files
-                    <span class="btn btn-default btn-file">
-                        <input multiple class="file fileInput" type="file"/>
-                    </span>
-                </p>
-            </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>Add Files
+                <span class="btn btn-default btn-file">
+                    <input multiple class="file fileInput" type="file"/>
+                </span>
+            </p>
         </div>
     </div>
 </template>
 
 
 <template name="postlist">
-
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                {{#each uploads}}
-                    {{> post}}
-                {{/each}}
-            </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {{#each uploads}}
+                {{> post}}
+            {{/each}}
         </div>
     </div>
-
 </template>
 
 <template name="post">
