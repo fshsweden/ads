@@ -3,6 +3,38 @@
   passwordSignupFields: 'USERNAME_ONLY'
 });*/
 
+/*
+    Blog:
+      _id
+      header
+      content
+      userId (Meteor.user())
+      dateCreated
+      dateModified
+ */
+Blogs = new FS.Collection('blogs', {
+  stores: [new FS.Store.FileSystem('blogs', {path: '~/' })]
+});
+
+/*
+    _id
+    _blog_id  (Blog._id)
+    userId (Meteor.user());
+    comment
+ */
+Blogcomments = new FS.Collection('blogcomments', {
+  stores: [new FS.Store.FileSystem('blogcomments', {path: '~/' })]
+});
+
+/*
+ _id
+ _blog_id  (Blog._id)
+ userId (Meteor.user());
+ */
+Bloglikes = new FS.Collection('bloglikes', {
+  stores: [new FS.Store.FileSystem('bloglikes', {path: '~/' })]
+});
+
 Uploads = new FS.Collection('uploads', {
   stores: [new FS.Store.FileSystem('uploads', {path: '~/' })]
 });

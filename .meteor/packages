@@ -24,3 +24,4 @@ mrt:bootstrap-3
 chrismbeckett:toastr
 accounts-password
 accounts-ui
+iron:router
