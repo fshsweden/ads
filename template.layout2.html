@@ -1,0 +1,26 @@
+<template name="layout2">
+
+    {{> yield "nav"}}
+
+    {{> yield "masthead"}}
+
+    <!--main-->
+    <div class="container">
+        <div class="row">
+
+            <!--left-->
+            <div class="col-md-3" id="leftCol">
+                 {{> yield "leftcol"}}
+            </div>
+            <!--/left-->
+
+            <!--right-->
+            <div class="col-md-9">
+                {{> yield "content"}}
+            </div>
+            <!--right-->
+
+        </div>
+    </div>
+</template>
+

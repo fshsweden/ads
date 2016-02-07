@@ -6,21 +6,44 @@
 
 // Default layout
 Router.configure({
-    layoutTemplate: 'ApplicationLayout'
+    layoutTemplate: 'layout2'
 });
 
 Router.route('/',
     function () {
-        this.render('Main');
-    },
-    {
-        name: 'main'
+        this.layout('layout2');
+        this.render('nav',      {to: 'nav'});
+        this.render('masthead', {to: 'masthead'});
+        this.render('main',     {to: 'content'});
+        this.render('leftcol',  {to: 'leftcol'});
     }
 );
 
+Router.route('/page1',
+    function () {
+        this.layout('layout2');
+        this.render('nav',      {to: 'nav'});
+        this.render('masthead', {to: 'masthead'});
+        this.render('page1',     {to: 'content'});
+        this.render('leftcol',  {to: 'leftcol'});
+    }
+);
+
+Router.route('/page2',
+    function () {
+        this.layout('layout2');
+        this.render('nav',      {to: 'nav'});
+        this.render('masthead', {to: 'masthead'});
+        this.render('page2',     {to: 'content'});
+        this.render('leftcol',  {to: 'leftcol'});
+    }
+);
+
+/*
+
 Router.route('/items', function () {
-    this.render('Items');
-},
+        this.render('Items');
+    },
     {
         name: 'Items'
     });
@@ -58,3 +81,5 @@ Router.route('/post/:_id', function () {
     // {{> yield "footer"}}
     this.render('PostFooter', {to: 'footer'});
 });
+
+    */

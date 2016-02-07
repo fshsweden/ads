@@ -12,9 +12,16 @@
       dateCreated
       dateModified
  */
-Blogs = new FS.Collection('blogs', {
+FSBlogs = new FS.Collection('blogs', {
   stores: [new FS.Store.FileSystem('blogs', {path: '~/' })]
 });
+
+FSBlogs.helpers = {
+  blogs : function() {
+    return Blogs.all({});
+  }
+}
+
 
 /*
     _id
@@ -22,7 +29,7 @@ Blogs = new FS.Collection('blogs', {
     userId (Meteor.user());
     comment
  */
-Blogcomments = new FS.Collection('blogcomments', {
+FSBlogcomments = new FS.Collection('blogcomments', {
   stores: [new FS.Store.FileSystem('blogcomments', {path: '~/' })]
 });
 
@@ -31,11 +38,11 @@ Blogcomments = new FS.Collection('blogcomments', {
  _blog_id  (Blog._id)
  userId (Meteor.user());
  */
-Bloglikes = new FS.Collection('bloglikes', {
+FSBloglikes = new FS.Collection('bloglikes', {
   stores: [new FS.Store.FileSystem('bloglikes', {path: '~/' })]
 });
 
-Uploads = new FS.Collection('uploads', {
+FSUploads = new FS.Collection('uploads', {
   stores: [new FS.Store.FileSystem('uploads', {path: '~/' })]
 });
 
@@ -47,10 +54,10 @@ if (Meteor.isClient) {
   Template.postlist.helpers({
     uploads: function () {
       if (Meteor.user()) {
-        return Uploads.find({userId: Meteor.user()._id}).fetch().reverse();
+        return FSUploads.find({userId: Meteor.user()._id}).fetch().reverse();
       }
       else
-        return Uploads.find({}).fetch().reverse();
+        return FSUploads.find({}).fetch().reverse();
     }
   });
 
@@ -71,7 +78,7 @@ if (Meteor.isClient) {
         newFile.userId = user._id;
 
         console.log('Adding username ' + user.username + ' to this object!')
-        Uploads.insert(newFile, function(err, fileObj) {
+        FSUploads.insert(newFile, function(err, fileObj) {
           if (err != undefined) {
             toastr.error(err,"Failure")
           }
