@@ -1,6 +1,7 @@
 <template name="nav">
     <nav class="navbar navbar-default navbar-fixed-top" role="banner">
         <div class="container">
+
             <div class="navbar-header">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -10,6 +11,7 @@
                 </button>
                 <a href="/" class="navbar-brand">Bootply</a>
             </div>
+
             <nav class="collapse navbar-collapse" role="navigation">
                 <ul class="nav navbar-nav">
                     <li>
@@ -23,9 +25,14 @@
                     </li>
                     <li>
                         <a href="#sec">Prototype</a>
+
                     </li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {{> atNavButton}}
+                </ul>
             </nav>
+
         </div>
     </nav>
 

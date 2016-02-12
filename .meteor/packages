@@ -25,3 +25,5 @@ chrismbeckett:toastr
 accounts-password
 accounts-ui
 iron:router
+useraccounts:bootstrap
+fourseven:scss

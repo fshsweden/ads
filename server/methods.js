@@ -14,6 +14,10 @@ if (Meteor.isServer) {
                     {$set: obj }
                 );
             })
+        },
+
+        removeAllAds: function() {
+            return Ads.remove({});
         }
     })
 }

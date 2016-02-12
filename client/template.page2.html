@@ -1,0 +1,32 @@
+<template name="page2">
+    <h3>Ads</h3>
+
+    <table>
+        <tr>
+        <th>Title</th><th>Content</th>
+        </tr>
+    {{#each ads}}
+        <tr>
+        <td>{{title}}</td>
+        <td>{{content}}</td>
+        </tr>
+    {{/each}}
+    </table>
+
+
+    {{#each ads}}
+    <div class="row">
+        <div class="title col-md-9">
+            {{title}}
+        </div>
+
+        <div class="blank col-md-3"></div>
+        <div class="content col-md-6">
+            {{content}}
+        </div>
+    </div>
+    {{/each}}
+
+    {{> atForm}}
+
+</template>
