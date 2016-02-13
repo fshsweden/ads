@@ -1,6 +1,7 @@
 <template name="page2">
     <h3>Ads</h3>
 
+    <!--
     <table>
         <tr>
         <th>Title</th><th>Content</th>
@@ -12,19 +13,23 @@
         </tr>
     {{/each}}
     </table>
+    -->
 
 
     {{#each ads}}
-    <div class="row">
-        <div class="title col-md-9">
-            {{title}}
+        <div class="row">
+            <div class="title col-md-12">
+                {{title}}
+            </div>
         </div>
+        <div class="row">
+            <div class="blank col-md-3">
 
-        <div class="blank col-md-3"></div>
-        <div class="content col-md-6">
-            {{content}}
+            </div>
+            <div class="content col-md-9">
+                {{content}}
+            </div>
         </div>
-    </div>
     {{/each}}
 
     {{> atForm}}
