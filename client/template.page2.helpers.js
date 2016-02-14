@@ -17,6 +17,8 @@ if (Meteor.isClient) {
 
             return Ads.find({tags: new RegExp(regex)});
         }
+
+
     });
 
 

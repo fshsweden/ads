@@ -13,6 +13,11 @@
             <input id="query" type="text"/>
             <button id="search" type="button" class="btn btn-danger">Search</button>
 
+            {{#each tag_cloud}}
+                <a href="{{link}}">{{name}}</a>
+            {{/each }}
+
+
         </div>
 
         <div class="row">
