@@ -2,20 +2,26 @@ if (Meteor.isClient) {
     Template.page2.helpers({
         ads: function () {
 
-            console.log('Ads helper');
+            console.log('page2.ads() helper');
             var srch = Session.get("query");
 
             // var query = /.*iphone.*/;
-            console.log('argument:' + srch);
 
-            // var regex = new RegEx(srch);
+            if (srch == 'undefined') {
+                return Ads.find({});
+            }
+            else {
+                console.log('page2.ads() argument:' + srch);
 
-            var regex = srch;
+                // var regex = new RegEx(srch);
 
-            console.log(typeof regex);
-            // console.log(JSON.stringify(regex));
+                var regex = srch;
 
-            return Ads.find({tags: new RegExp(regex)});
+                // console.log(typeof regex);
+                // console.log(JSON.stringify(regex));
+
+                return Ads.find({tags: new RegExp(regex)});
+            }
         }
 
 
